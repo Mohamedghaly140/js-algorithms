@@ -17,6 +17,8 @@
 // console.log(fact(4));
 // console.log(fact(5));
 
+// ========================================================================
+
 // function fib(n, memo) {
 //   // [1, 1, 2, 3, 5, 8]
 //   let result;
@@ -36,6 +38,8 @@
 // console.log(fib(4, {}));
 // console.log(fib(59, {}));
 
+// ========================================================================
+
 // function area(r) {
 //   const a = Math.PI * Math.pow(r, 2);
 //   return a.toFixed(2);
@@ -44,11 +48,23 @@
 // console.log(area(10));
 // console.log(area(20));
 
-function areaOfParallelogram(b, h) {
-  const area = b * h;
-  // const area = Math.pow(a, 2) * Math.sin(d);
-  return area;
-}
-console.log(areaOfParallelogram(5, 3));
+// ========================================================================
 
-function areaOfTrapezoid() {}
+// Area of Parallelogram
+// A = b * h
+// function areaOfParallelogram(b, h) {
+//   const area = b * h;
+//   // const area = Math.pow(a, 2) * Math.sin(d);
+//   return area;
+// }
+// console.log(areaOfParallelogram(5, 3));
+
+// ========================================================================
+
+// Area of Trapezoid
+// A = (a + b / 2) * h
+// function areaOfTrapezoid(a, b, h) {
+//   const area = ((a + b) / 2) * h;
+//   return area;
+// }
+// console.log(areaOfTrapezoid(2, 5, 3));
