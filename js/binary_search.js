@@ -3,7 +3,7 @@ function binarySearch(x = [], key) {
   let high = x.length - 1;
 
   while (low <= high) {
-    let mid = Math.floor((low + high) / 2);
+    const mid = Math.floor((low + high) / 2);
 
     if (key === x[mid]) {
       return mid;
@@ -21,4 +21,4 @@ function binarySearch(x = [], key) {
 
 const testArray = [1, 2, 3, 4, 5, 6, 7, 8];
 
-console.log(binarySearch(testArray, 4));
+console.log(binarySearch(testArray, 2));
