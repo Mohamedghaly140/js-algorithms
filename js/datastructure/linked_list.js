@@ -134,6 +134,18 @@ class LinkedList {
     }
   }
 
+  reverse() {
+    let prev = null;
+    let curr = this.head;
+    while (curr) {
+      let next = curr.next;
+      curr.next = prev;
+      prev = curr;
+      curr = next;
+    }
+    this.head = prev;
+  }
+
   print() {
     if (this.isEmpty()) {
       console.info("List is empty!");
@@ -153,11 +165,17 @@ const list = new LinkedList();
 
 console.log(list.isEmpty());
 console.log(list.getSize());
-list.prepend(10);
-list.prepend(20);
-list.prepend(30);
-list.append(60);
+// list.prepend(10);
+// list.prepend(20);
+// list.prepend(30);
+// list.append(60);
+list.insert(10, 0);
+list.insert(20, 0);
+list.insert(30, 0);
+list.insert(40, 0);
 list.print();
 console.log(list.getFirst());
 console.log(list.getLast());
 console.log(list.search(20));
+list.reverse();
+list.print();
