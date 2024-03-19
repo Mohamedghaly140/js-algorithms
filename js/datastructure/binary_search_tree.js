@@ -40,16 +40,20 @@ class BinraySearchTree {
     }
   }
 
-  search(root, value) {
+  search(value) {
+    return this.#internalSearch(this.root, value);
+  }
+
+  #internalSearch(root, value) {
     if (!root) {
       return false;
     } else {
       if (root.value === value) {
         return true;
       } else if (value < root.value) {
-        return this.search(root.left, value);
+        return this.#internalSearch(root.left, value);
       } else {
-        return this.search(root.right, value);
+        return this.#internalSearch(root.right, value);
       }
     }
   }
@@ -61,16 +65,35 @@ class BinraySearchTree {
       this.preOrder(root.right);
     }
   }
+
+  height() {
+    return this.#internalHeight(this.root);
+  }
+
+  #internalHeight(root) {
+    if (root === null) return 0;
+    return (
+      Math.max(
+        this.#internalHeight(root.left),
+        this.#internalHeight(root.right)
+      ) + 1
+    );
+  }
 }
 
 const bst = new BinraySearchTree();
 
 console.log("Tree is empty?", bst.isEmpty());
 
-bst.insert(10);
+bst.insert(3);
 bst.insert(5);
+bst.insert(6);
+bst.insert(10);
 bst.insert(15);
+bst.insert(18);
 
-console.log("10?", bst.search(bst.root, 10));
-console.log("5?", bst.search(bst.root, 5));
-console.log("15?", bst.search(bst.root, 15));
+console.log("10?", bst.search(10));
+console.log("5?", bst.search(5));
+console.log("15?", bst.search(15));
+console.log("height?", bst.height());
+// console.log("height?", bst.printTree());
