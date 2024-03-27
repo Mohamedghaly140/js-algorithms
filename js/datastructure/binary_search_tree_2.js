@@ -81,7 +81,7 @@ class BinarySearchTree {
 
   #print(data) {
     if (typeof window === "undefined") {
-      process.stdout.write(data + " ");
+      process.stdout.write(data + " => ");
     } else {
       console.log(data);
     }
