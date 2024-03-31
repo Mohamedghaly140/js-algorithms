@@ -87,6 +87,33 @@ class BinarySearchTree {
     }
   }
 
+  #deleteHasChilds(nodeToDelete) {
+    let currentNode = nodeToDelete.right;
+    let parent = null;
+    while (currentNode.left !== null) {
+      parent = currentNode;
+      currentNode = currentNode.left;
+    }
+    if (parent !== null) {
+      parent.left = currentNode.right;
+    } else {
+      nodeToDelete.right = currentNode.right;
+    }
+    nodeToDelete.data = currentNode.data;
+  }
+
+  #deleteHasOneChilds(nodeToDelete) {
+    let nodeToReplace = null;
+    if (nodeToDelete.left !== null) {
+      nodeToReplace = nodeToDelete.left;
+    } else {
+      nodeToReplace = nodeToDelete.right;
+    }
+    nodeToDelete.data = nodeToReplace.data;
+    nodeToDelete.left = nodeToReplace.left;
+    nodeToDelete.right = nodeToReplace.right;
+  }
+
   height() {
     return this.#internalHeight(this.#root);
   }
